@@ -2,7 +2,7 @@
   'use strict';
   var li = 1;
    var completedList = new Array();
-  //  jQuery(document).ready(function($) {
+
   $("input[name=new-todo]").keydown(function(key) {
     if (key.keyCode == 13) { //enter 누르면 실행
       var value = $('input[name=new-todo]').val();
@@ -15,7 +15,7 @@
       $('input[name=new-todo]').val("");
     }
   });
-  //  });
+
 
   function deleteTodoList(id) { //할일 삭제
     var json = new Object();
