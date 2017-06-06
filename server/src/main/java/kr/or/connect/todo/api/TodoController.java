@@ -14,24 +14,22 @@ import java.util.List;
 public class TodoController {
     private final TodoListService service;
 
-    @Autowired
-    public TodoController(TodoListService service) {
-        this.service = service;
-    }
+    	@Autowired
+    	public TodoController(TodoListService service) {
+        	this.service = service;
+    	}
 
-    @GetMapping
-    List<TodoListDataSet> todoList() {
-        return service.getListAll();
-    }
+    	@GetMapping
+    	List<TodoListDataSet> todoList() {
+        	return service.getListAll();
+    	}
 
-
-    @PostMapping
-    @ResponseBody TodoListDataSet insertList(@RequestBody TodoListDataSet data) {
+	@PostMapping
+	@ResponseBody TodoListDataSet insertList(@RequestBody TodoListDataSet data) {
     	service.insertList(data);
-        return data;
-    }
+        	return data;
+    	}
     
-
 	@DeleteMapping("/{id}")
 	//@ResponseStatus(HttpStatus.NO_CONTENT)
 	void delete(@PathVariable int id) {
@@ -43,32 +41,5 @@ public class TodoController {
 		service.completedList(id);
 	}
 	
-   /* @PutMapping(value = "/{id}", consumes = "application/json")
-    ResponseEntity<?> update(@PathVariable Integer id, @RequestBody TodoListDataSet todo) {
-        todo.setId(id);
-        AjaxResult ajaxResult = new AjaxResult();
-        if (service.complete(todo)) {
-            ajaxResult.setResult("SUCS");
-
-        } else {
-            ajaxResult.setResult("FAIL");
-
-        }
-        return new ResponseEntity<AjaxResult>(ajaxResult, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/{id}")
-    ResponseEntity<?> delete(@PathVariable Integer id) {
-        AjaxResult ajaxResult = new AjaxResult();
-
-        if (service.delete(id)) {
-            ajaxResult.setResult("SUCS");
-
-        } else {
-            ajaxResult.setResult("FAIL");
-
-        }
-        return new ResponseEntity<AjaxResult>(ajaxResult, HttpStatus.OK);
-
-    }*/
+ 
 }
